@@ -1,6 +1,6 @@
 <script lang="ts" setup >
 import { ref, computed, Ref } from 'vue';
-import {lengthOfLongestSubstring} from "@/views/login/util";
+import {longestPalindrome} from "@/views/login/util";
 
 const value:Ref = ref(3);
 const currentRate = ref(0);
@@ -24,7 +24,9 @@ const twoSum = (mums:number[],target:number):number[] => {
 
 	return  []
 }
-let ustr = 'u476jdr3bbc4321'
+let arr1 = [8,4,55,66,33]
+let arr2 = [8,8,56,82,33]
+let ustr = 'dbdsasaihgiufsaguisafgugfyasgikasfdfgsgsdabd'
 // l1 = [2,4,3], l2 = [5,6,4] 输出：[7,0,8] 342 + 465 = 807.
 let l1 =  [2,4,3]
 let l2 =  [5,6,8]
@@ -66,7 +68,7 @@ const addRate = () => {
   <van-button
     type="primary"
     round
-    @click="lengthOfLongestSubstring(ustr)"
+    @click="longestPalindrome(ustr)"
   >
     点击
   </van-button>
