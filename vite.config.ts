@@ -5,7 +5,7 @@ import Components from 'unplugin-vue-components/vite'
 import { VantResolver } from 'unplugin-vue-components/resolvers'
 export default defineConfig({
   resolve: {
-    extensions:['.ts','.js','.tsx'],
+    // extensions:['.ts','.js','.tsx'],
     alias: {
       '@': '/src'
     }
@@ -19,7 +19,7 @@ export default defineConfig({
     // proxy: createProxy(VITE_PROXY),
   },
   plugins: [
-    vue(),
+    vue({    reactivityTransform: true}),
     Components({
       resolvers: [
         VantResolver(),
