@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@vueuse/shared": "^8.0.1",
+    "axios": "^0.27.2",
     "pinia": "^2.0.12",
     "sass": "^1.49.9",
     "vant": "^3.4.5",
