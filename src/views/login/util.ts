@@ -40,32 +40,40 @@ const findMedianSortedArrays =  (nums1:number[], nums2:number[]):number=>{
 * @return {string}
 * */
 const longestPalindrome = (s:string) :string=> {
-    let arrS =  s.split('')
-    let left = 0
-    let right = s.length
-    let PalindromeStr = ''
-    const IsPalindrome=(left:number)=>{
-        let  a =  arrS[left]
-        if(arrS.lastIndexOf(arrS[left]) > -1 && arrS.lastIndexOf(arrS[left]) !== left){
-            let  b =  arrS.slice(left,arrS.lastIndexOf(arrS[left])+1)
-            for (let i = 0; i < b.length >> 1; i++) {
-                if(b[i] !== b[b.length - i -1]){
+    if(s.length < 2) return  s
+    let arrS =  s
+    let PalindromeStr = arrS[0]
+    const IsPalindrome=(arr:string)=>{
+        if(arr.length<PalindromeStr.length){
+            return;
+        }
+        let nArrKey = arr.slice(0,-1).lastIndexOf(arr[0])
+        if(nArrKey !== 0){
+            IsPalindrome(arr.slice(0,nArrKey+1))
+        }
+        if(arr.lastIndexOf(arr[0]) > 0){
+            for (let i = 0; i < arr.length >> 1; i++) {
+                if(arr[i] !== arr[arr.length - i -1]){
                     return
                 }
-                if(i === (b.length >> 1)-1 && b.length > PalindromeStr.length){
-                    PalindromeStr = b.join(',')
+                if(i === (arr.length >> 1) -1 && arr.length > PalindromeStr.length){
+                    PalindromeStr = arr
                 }
             }
         }else {
             return;
         }
     }
-    arrS.forEach((item,index)=>{
-         IsPalindrome(index)
-
-    })
+    let i = 0
+    while (i < arrS.length){
+        let Arr = arrS.slice(i,arrS.lastIndexOf(arrS[i])+1)
+        if(Arr.length>PalindromeStr.length){
+            IsPalindrome(Arr)
+        }
+        i++
+    }
     console.log(PalindromeStr)
-    return '555'
+    return PalindromeStr
 }
 
 export {lengthOfLongestSubstring,findMedianSortedArrays,longestPalindrome}

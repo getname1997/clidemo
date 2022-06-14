@@ -26,7 +26,7 @@ const twoSum = (mums:number[],target:number):number[] => {
 }
 let arr1 = [8,4,55,66,33]
 let arr2 = [8,8,56,82,33]
-let ustr = 'dbdsasaihgiufsaguisafgugfyasgikasfdfgsgsdabd'
+let ustr = 'cbbd'
 // l1 = [2,4,3], l2 = [5,6,4] 输出：[7,0,8] 342 + 465 = 807.
 let l1 =  [2,4,3]
 let l2 =  [5,6,8]
