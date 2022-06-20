@@ -75,5 +75,46 @@ const longestPalindrome = (s:string) :string=> {
     console.log(PalindromeStr)
     return PalindromeStr
 }
+/** 6.N 型变换
+*  @param {string} s
+*  @param {number} numRows
+*  @return {string}
+* */
+const convert = (s: string, numRows: number):string=>{
+    let ArrList:any[] = []
+    let index = s.length
+    let str = ''
+    let type = true
+    let rows = numRows
+    let x = 0
+    let y = 0
+    while (index > 0 ) {
+        rows--
+        ArrList[x][y] = s[s.length - index]
+        if(type){
+            x++
+        }else {
+            x--
+            y++
+        }
+        if(!ArrList[x]){
+            ArrList[x] = []
+        }
+        if(rows <= 1 && numRows !== 1){
+            rows = numRows
+            type = !type
+        }
+        index--
+    }
+    ArrList.forEach(item=>{
+        item.forEach( (u:string| undefined) =>{
+            if(u){
+               str+= u
+            }
+        })
+    })
+   return str
+}
 
-export {lengthOfLongestSubstring,findMedianSortedArrays,longestPalindrome}
+
+export {lengthOfLongestSubstring,findMedianSortedArrays,longestPalindrome,convert}
