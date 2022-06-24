@@ -1,6 +1,6 @@
 <script lang="ts" setup >
 import { ref, computed, Ref } from 'vue';
-import {convert} from "@/views/login/util";
+import {myAtoi} from "@/views/login/util";
 
 const value:Ref = ref(3);
 const currentRate = ref(0);
@@ -68,7 +68,7 @@ const addRate = () => {
   <van-button
     type="primary"
     round
-    @click="convert(ustr,3)"
+    @click="myAtoi('   - 4193 with words 444')"
   >
     点击
   </van-button>

@@ -1,5 +1,8 @@
-
 /*3. 无重复字符的最长子串*/
+/**
+ * @param {string} s
+ * @return {number}
+ * */
 const lengthOfLongestSubstring =(s: string): number => {
     let uStr= ''
     let str = ''
@@ -90,6 +93,10 @@ const convert = (s: string, numRows: number):string=>{
     let y = 0
     while (index > 0 ) {
         rows--
+        if(!ArrList[x]){
+            ArrList[x] = []
+        }
+
         ArrList[x][y] = s[s.length - index]
         if(type){
             x++
@@ -113,8 +120,35 @@ const convert = (s: string, numRows: number):string=>{
             }
         })
     })
+    console.log(str)
    return str
 }
 
+/**
+ * 7. 整数反转
+ * @param {number} x
+ * @return {number}
+ *
+ */
+const reverse = (x:number):number =>{
+    let a  =  +[...Math.abs(x).toString()].reverse().join('')
+    let flag = x > 0 ? 1 : 0
+    let u = 2147483648 - flag
+    if(a > u)return  0
+    return flag?a :-a
+}
+/**
+ * 字符串转换整数 (atoi)
+ * @param {number} s
+ * @return {number}
+ *
+ */
+const myAtoi = (s: string):number => {
+    let a = s.replace(/[a-zA-Z_+\s]/g,'')
+    console.log(a)
+    return  +a
 
-export {lengthOfLongestSubstring,findMedianSortedArrays,longestPalindrome,convert}
+}
+
+
+export {lengthOfLongestSubstring,findMedianSortedArrays,longestPalindrome,convert,reverse,myAtoi}
